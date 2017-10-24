@@ -143,7 +143,7 @@
                     }
                     clonedTr.append("<td><a href=\"edit/shoe/"+item.sid+
                         "\" title=\"修改\"><i class=\"fa fa-pencil\"></i></a>"+str+"</td>");
-                    frag.appendChild(clonedTr);
+                    frag.appendChild(clonedTr.get(0));
                 });
                 $("#shoe").appendChild(frag);
             }
