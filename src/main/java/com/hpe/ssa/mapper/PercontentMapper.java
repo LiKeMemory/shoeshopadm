@@ -2,7 +2,6 @@ package com.hpe.ssa.mapper;
 
 import java.util.List;
 
-import com.hpe.ssa.pojo.Admins;
 import com.hpe.ssa.pojo.Percontent;
 
 public interface PercontentMapper {

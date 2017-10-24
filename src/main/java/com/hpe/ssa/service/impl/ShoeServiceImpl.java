@@ -14,6 +14,7 @@ public class ShoeServiceImpl implements ShoeService {
     private ShoesMapper shoesMapper;
     @Override
     public List<Shoes4List> selectShoes4List(int index) {
+
         return shoesMapper.selectShoes4List(index);
     }
 

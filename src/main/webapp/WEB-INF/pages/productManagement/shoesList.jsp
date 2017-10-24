@@ -119,7 +119,7 @@
             data : {"index":index},
             dataType : "json",
             success : function(data) {
-                // 遍历数组内容
+                // 遍历数组内容1
                 var tr = $(".template");
                 var frag = document.createDocumentFragment();
                 //循环data，填充表格
