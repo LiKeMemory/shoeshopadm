@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="plugin/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="plugin/font-awesome/css/font-awesome.css">
-
-    <script src="plugin/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="plugin/pagetool.js" type="text/javascript"></script>
+    <script src="plugin/jquery-3.2.1.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/theme.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/premium.css">
     <script type="text/javascript">
