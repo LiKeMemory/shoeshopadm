@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hpe.ssa.mapper.ShoesMapper">
+	<sql id="Base_Column_List">
+		sid,stid,sbid,snum,sname,sprices,sdiscount,spubtime,sproducer,sgender,scolor,sinfo,stimesold,simage,sdetail,
+		sintegral,sdelete,sremarks,sandroidimg
+	</sql>
+	<select id="selectShoes4List" parameterType="java.lang.Integer" resultType="com.hpe.ssa.pojo.Shoes4List">
+		SELECT sid,tname,bname,sname,sprices,sproducer,sgender,scolor,sdelete
+		FROM shoes,types,brands
+		WHERE stid = tid AND sbid = bid
+		ORDER BY sid
+		LIMIT #{index},10
+	</select>
+	<select id="selectShoesNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT COUNT(sid)
+		FROM shoes
+	</select>
+
+</mapper>
