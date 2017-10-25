@@ -1,35 +1,39 @@
 package com.hpe.ssa.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 //鞋子实体类
 public class Shoes {
     private Integer sid;
-    private Integer stid;
-    private Integer sbid;
-    private String snum;
-    private String sname;
-    private Float sprices;
+    private Integer stid;//类型
+    private Integer sbid;//品牌
+    private String snum;//序列号
+    private String sname;//名称
+    private Float sprices;//价格
     private Integer sdiscount;//库存量
-    private Date spubtime;
-    private String sproducer;
+    private Date spubtime;//发布时间
+    private String sproducer;//成产商
     private String sgender;//款式男or女
-    private String scolor;
-    private String sinfo;
-    private Integer stimesold;
-    private String simage;
-    private String sdetail;
+    private String scolor;//颜色
+    private String sinfo;//相关信息
+    private Integer stimesold;//卖出次数
+    private String simage;//图片地址
+    private String sdetail;//详细信息
     private Float sintegral;//鞋子积分
-    private Integer sdelete;
+    private Integer sdelete;//状态
     private String sremarks;
     private String sandroidimg;
+    private List<Sizes> sizeList;
+
 
     public Shoes() {
     }
 
-    public Shoes(Integer sid, Integer stid, Integer sbid, String snum, String sname, Float sprices, Integer sdiscount,
-                 Date spubtime, String sproducer, String sgender, String scolor, String sinfo, Integer stimesold,
-                 String simage, String sdetail, Float sintegral, Integer sdelete, String sremarks, String sandroidimg) {
+    public Shoes(Integer sid, Integer stid, Integer sbid, String snum, String sname, Float sprices,
+                 Integer sdiscount, Date spubtime, String sproducer, String sgender, String scolor, String sinfo,
+                 Integer stimesold, String simage, String sdetail, Float sintegral, Integer sdelete, String sremarks,
+                 String sandroidimg, List<Sizes> sizeList) {
         this.sid = sid;
         this.stid = stid;
         this.sbid = sbid;
@@ -49,6 +53,7 @@ public class Shoes {
         this.sdelete = sdelete;
         this.sremarks = sremarks;
         this.sandroidimg = sandroidimg;
+        this.sizeList = sizeList;
     }
 
     public Integer getSid() {
@@ -203,6 +208,14 @@ public class Shoes {
         this.sandroidimg = sandroidimg;
     }
 
+    public List<Sizes> getSizeList() {
+        return sizeList;
+    }
+
+    public void setSizeList(List<Sizes> sizeList) {
+        this.sizeList = sizeList;
+    }
+
     @Override
     public String toString() {
         return "Shoes{" +
@@ -225,6 +238,7 @@ public class Shoes {
                 ", sdelete=" + sdelete +
                 ", sremarks='" + sremarks + '\'' +
                 ", sandroidimg='" + sandroidimg + '\'' +
+                ", sizeList=" + sizeList +
                 '}';
     }
 }

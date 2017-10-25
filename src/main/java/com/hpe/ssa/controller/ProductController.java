@@ -1,7 +1,9 @@
 package com.hpe.ssa.controller;
 
+import com.hpe.ssa.pojo.Shoes;
 import com.hpe.ssa.pojo.Shoes4List;
 import com.hpe.ssa.service.ShoeService;
+import com.hpe.ssa.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,9 @@ public class ProductController {
 
     @RequestMapping(value = "/edit/shoe/{sid}",method = RequestMethod.GET)
     public ModelAndView editShoeById(@PathVariable String sid){
+        Shoes shoe = shoeService.selectShoeDetailById(Integer.parseInt(sid));
         ModelAndView mv = new ModelAndView();
+        mv.addObject("shoe",shoe);
         mv.setViewName("pages/productManagement/shoesEdit");
         return mv;
     }
@@ -38,4 +42,11 @@ public class ProductController {
     public String getTotalNum(){
         return String.valueOf(shoeService.selectShoesNum());
     }
+
+    @RequestMapping(value = "/update/shoe",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultUtil updateShoeDetail(Shoes shoes){
+        return null;
+    }
+
 }

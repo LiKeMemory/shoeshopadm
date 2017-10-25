@@ -7,6 +7,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		sid,stid,sbid,snum,sname,sprices,sdiscount,spubtime,sproducer,sgender,scolor,sinfo,stimesold,simage,sdetail,
 		sintegral,sdelete,sremarks,sandroidimg
 	</sql>
+	<resultMap id="shoeDetailMap" type="com.hpe.ssa.pojo.Shoes">
+		<id column="sid" property="sid"/>
+		<result column="stid" property="stid"/>
+		<result column="sbid" property="sbid"/>
+		<result column="snum" property="snum"/>
+		<result column="sname" property="sname"/>
+		<result column="sprices" property="sprices"/>
+		<result column="spubtime" property="spubtime"/>
+		<result column="sproducer" property="sproducer"/>
+		<result column="sgender" property="sgender"/>
+		<result column="scolor" property="scolor"/>
+		<result column="sinfo" property="sinfo"/>
+		<result column="stimesold" property="stimesold"/>
+		<result column="simage" property="simage"/>
+		<result column="sdetail" property="sdetail"/>
+		<result column="sintegral" property="sintegral"/>
+		<result column="sdelete" property="sdelete"/>
+		<collection property="sizeList" ofType="com.hpe.ssa.pojo.Sizes">
+			<id column="sizeid" property="sizeid"/>
+			<result column="sizenum" property="sizenum"/>
+			<result column="sremarks" property="sremarks"/>
+		</collection>
+	</resultMap>
+
 	<select id="selectShoes4List" parameterType="java.lang.Integer" resultType="com.hpe.ssa.pojo.Shoes4List">
 		SELECT sid,tname,bname,sname,sprices,sproducer,sgender,scolor,sdelete
 		FROM shoes,types,brands
@@ -18,5 +42,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(sid)
 		FROM shoes
 	</select>
-
+	<select id="selectShoeDetailById" parameterMap="java.lang.Integer" resultMap="shoeDetailMap">
+		SELECT sid,stid,sbid,snum,sname,sprices,spubtime,sproducer,sgender,
+		scolor,sinfo,stimesold,simage,sdetail,sintegral,sdelete,sizeid
+		FROM shoes,sizes,shoesizes
+		WHERE s_sid = sid AND s_sizeid = sizeid AND sid=#{sid}
+	</select>
 </mapper>
