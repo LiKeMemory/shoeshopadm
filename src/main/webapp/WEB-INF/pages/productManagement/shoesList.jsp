@@ -134,13 +134,14 @@
                     $tr.append("<td>"+item.sproducer+"</td>");
                     $tr.append("<td>"+item.sgender+"</td>");
                     $tr.append("<td>"+item.scolor+"</td>");
-                    if(item.sdelete ===1) {
+                    alert(item.sdelete);
+                    if(item.sdelete ==0) {
                         str = "<a class=\"dela\" id=\"del"+item.sid+"\" href=\"javascript:void(0)\" delid=\""+item.sid+"\" del=\"1\">禁用</a>";
                     }else {
                         str = "<a class=\"dela\" id=\"del"+item.sid+"\" href=\"javascript:void(0)\" delid=\""+item.sid+"\" del=\"0\">撤销禁用</a>"
                     }
                     $tr.append("<td><a href=\"edit/shoe/"+item.sid+
-                        "\" title=\"修改\"><i class=\"fa fa-pencil\"></i></a>&nbsp;&nbsp;"+str+"</td>");
+                        "\" title=\"修改\"><i class=\"fa fa-pencil\"></i>修改</a>&nbsp;&nbsp;"+str+"</td>");
                     frag.appendChild($tr.get(0));
                 });
                 document.getElementById("shoe").appendChild(frag);
