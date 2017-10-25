@@ -88,9 +88,7 @@
     var pageNum=1;
     var index = -10;
     var totalPage;
-    alert(1111111);
     $(function(){
-        alert(1111111);
         // 加载数据
         getTotalNum();
         //异步加载返回数据时间不确定，所以直接获取pageNum可能没有变化，等待0.5秒之后再设置分页
@@ -111,7 +109,7 @@
     }
     function getShoes(pageNum){
         index =(pageNum-1)*10;
-        $("div").remove(".flag");
+        $("tr").remove(".flag");
         $.ajax({
             url : "get/shoeslist",
             type : "GET",
@@ -120,35 +118,36 @@
             dataType : "json",
             success : function(data) {
                 // 遍历数组内容1
-                var tr = $(".template");
                 var frag = document.createDocumentFragment();
                 //循环data，填充表格
                 var str;
                 $.each(data,function (index,item) {
-                    var clonedTr = tr.clone();
-                    clonedTr.removeClass("template");
-                    clonedTr.addClass("flag");  //有时间尝试classList
-                    clonedTr.append("<td>"+item.sid+"</td>");
-                    clonedTr.append("<td>"+item.tname+"</td>");
-                    clonedTr.append("<td>"+item.bname+"</td>");
-                    clonedTr.append("<td>"+item.sname+"</td>");
-                    clonedTr.append("<td>"+item.sprices+"</td>");
-                    clonedTr.append("<td>"+item.sproducer+"</td>");
-                    clonedTr.append("<td>"+item.sgender+"</td>");
-                    clonedTr.append("<td>"+item.scolor+"</td>");
+//                    var clonedTr = tr.clone();
+//                    clonedTr.removeClass("template");
+                    var $tr=$("<tr></tr>");
+                    $tr.addClass("flag");  //有时间尝试classList
+                    $tr.append("<td>"+item.sid+"</td>");
+                    $tr.append("<td>"+item.tname+"</td>");
+                    $tr.append("<td>"+item.bname+"</td>");
+                    $tr.append("<td>"+item.sname+"</td>");
+                    $tr.append("<td>"+item.sprices+"</td>");
+                    $tr.append("<td>"+item.sproducer+"</td>");
+                    $tr.append("<td>"+item.sgender+"</td>");
+                    $tr.append("<td>"+item.scolor+"</td>");
                     if(item.sdelete ===1) {
                         str = "<a class=\"dela\" id=\"del"+item.sid+"\" href=\"javascript:void(0)\" delid=\""+item.sid+"\" del=\"1\">禁用</a>";
                     }else {
                         str = "<a class=\"dela\" id=\"del"+item.sid+"\" href=\"javascript:void(0)\" delid=\""+item.sid+"\" del=\"0\">撤销禁用</a>"
                     }
-                    clonedTr.append("<td><a href=\"edit/shoe/"+item.sid+
-                        "\" title=\"修改\"><i class=\"fa fa-pencil\"></i></a>"+str+"</td>");
-                    frag.appendChild(clonedTr.get(0));
+                    $tr.append("<td><a href=\"edit/shoe/"+item.sid+
+                        "\" title=\"修改\"><i class=\"fa fa-pencil\"></i></a>&nbsp;&nbsp;"+str+"</td>");
+                    frag.appendChild($tr.get(0));
                 });
-                $("#shoe").appendChild(frag);
+                document.getElementById("shoe").appendChild(frag);
+//                $("#shoe").appendChild(frag);
             }
         });
-        setPage(pageNum, totalPage, "getMsg");
+        setPage(pageNum, totalPage, "getShoes");
     }
 </script>
 </body>
