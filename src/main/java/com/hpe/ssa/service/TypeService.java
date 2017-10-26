@@ -13,4 +13,6 @@ public interface TypeService {
     List<Types> selectTypes4List(int index);
     //根据tid获取鞋子详情
     Types selectTypeDetailById(int tid);
+    //获取所有类型名称
+    List<Types> selectTypeNames();
 }

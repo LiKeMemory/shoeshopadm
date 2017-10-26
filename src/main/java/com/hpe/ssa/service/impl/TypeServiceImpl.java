@@ -27,4 +27,9 @@ public class TypeServiceImpl implements TypeService {
     public Types selectTypeDetailById(int tid) {
         return typesMapper.selectTypeDetailById(tid);
     }
+
+    @Override
+    public List<Types> selectTypeNames() {
+        return typesMapper.selectTypeNames();
+    }
 }

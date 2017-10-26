@@ -21,4 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT tid,tname,tremarks,tdelete
 		FROM types WHERE tid=#{tid}
 	</select>
+	<select id="selectTypeNames" resultType="com.hpe.ssa.pojo.Types">
+		SELECT tid,tname from types
+	</select>
 </mapper>

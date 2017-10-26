@@ -43,5 +43,9 @@ public class BrandController {
         mv.setViewName("pages/productManagement/brandsEdit");
         return mv;
     }
-
+    @RequestMapping(value = "/get/bname",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Brands> getBrandNames(){
+        return brandService.selectBrandNames();
+    }
 }

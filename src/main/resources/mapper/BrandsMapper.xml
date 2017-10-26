@@ -21,4 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT <include refid="Base_Column_List"/>
 		FROM brands WHERE bid=#{bid}
 	</select>
+	<select id="selectBrandNames" resultType="com.hpe.ssa.pojo.Brands">
+		SELECT bid,bname from brands
+	</select>
 </mapper>

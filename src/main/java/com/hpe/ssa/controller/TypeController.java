@@ -44,4 +44,10 @@ public class TypeController {
         mv.setViewName("pages/productManagement/typesEdit");
         return mv;
     }
+
+    @RequestMapping(value = "/get/tname",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Types> getTypeNames(){
+        return typeService.selectTypeNames();
+    }
 }

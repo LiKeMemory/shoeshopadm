@@ -27,4 +27,9 @@ public class BrandServiceImpl implements BrandService {
     public Brands selectBrandDetailById(int bid) {
         return brandsMapper.selectBrandDetailById(bid);
     }
+
+    @Override
+    public List<Brands> selectBrandNames() {
+        return brandsMapper.selectBrandNames();
+    }
 }

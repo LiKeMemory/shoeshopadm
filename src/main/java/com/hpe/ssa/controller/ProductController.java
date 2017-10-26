@@ -50,4 +50,15 @@ public class ProductController {
         return null;
     }
 
+    @RequestMapping("/shoeinput")
+    public String showShoeAddPage(){
+        return "pages/productManagement/shoesAdd";
+    }
+
+    @RequestMapping(value = "/add/shoe",method = RequestMethod.POST)
+    public ResultUtil addNewShow(Shoes shoe){
+        System.out.println(shoe);
+        return new ResultUtil("1","成功");
+    }
+
 }

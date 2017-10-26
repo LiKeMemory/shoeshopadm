@@ -11,4 +11,6 @@ public interface BrandService {
     List<Brands> selectBrands4List(int index);
     //根据bid获取品牌详情
     Brands selectBrandDetailById(int bid);
+    //获取所有品牌名称
+    List<Brands> selectBrandNames();
 }
