@@ -4,6 +4,6 @@
     <li><ul class="shoes-menu nav nav-list collapse">
              <li><a href="shoemgmt">  鞋子管理</a></li>
         	<li><a href="#">  品牌管理</a></li>
-         	<li><a href="#">  类型管理</a></li>
+         	<li><a href="typemgmt">  类型管理</a></li>
         	<li><a href="#">  定制鞋管理</a></li>
     </ul></li>

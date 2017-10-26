@@ -40,7 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY sid
 		LIMIT #{index},10
 	</select>
-	<select id="selectShoesNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+	<select id="selectShoesNum"  resultType="java.lang.Integer">
 		SELECT COUNT(sid)
 		FROM shoes
 	</select>

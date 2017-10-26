@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hpe.ssa.mapper.BrandsMapper">
+	<sql id="Base_Column_List">
+		aid,acount,apwd,a_pcid,aremarks
+	</sql>
+	<select id="login" parameterType="com.hpe.ssa.pojo.Admins" resultType="com.hpe.ssa.pojo.Admins">
+		select
+		<include refid="Base_Column_List" />
+		from admins where acount=#{acount} and apwd=#{apwd}
+	</select>
+</mapper>
