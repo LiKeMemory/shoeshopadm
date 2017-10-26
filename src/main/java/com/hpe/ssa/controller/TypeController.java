@@ -1,7 +1,5 @@
 package com.hpe.ssa.controller;
 
-import com.hpe.ssa.pojo.Shoes;
-import com.hpe.ssa.pojo.Shoes4List;
 import com.hpe.ssa.pojo.Types;
 import com.hpe.ssa.service.TypeService;
 import com.hpe.ssa.utils.JsonUtils;
@@ -34,7 +32,7 @@ public class TypeController {
 
     @RequestMapping(value = "/get/typeslist",method = RequestMethod.GET)
     @ResponseBody
-    public List<Types> showShoesList(String index){
+    public List<Types> showTypesList(String index){
         return typeService.selectTypes4List(Integer.parseInt(index));
     }
 

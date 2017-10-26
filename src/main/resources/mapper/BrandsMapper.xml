@@ -4,11 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hpe.ssa.mapper.BrandsMapper">
 	<sql id="Base_Column_List">
-		aid,acount,apwd,a_pcid,aremarks
+		bid,bname,bsex,bstate,bremarks
 	</sql>
-	<select id="login" parameterType="com.hpe.ssa.pojo.Admins" resultType="com.hpe.ssa.pojo.Admins">
-		select
-		<include refid="Base_Column_List" />
-		from admins where acount=#{acount} and apwd=#{apwd}
+	<select id="selectBrandsNum"  resultType="java.lang.Integer">
+		SELECT COUNT(bid)
+		FROM brands
+	</select>
+	<select id="selectBrands4List" parameterType="java.lang.Integer" resultType="com.hpe.ssa.pojo.Brands">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM brands
+		ORDER BY bid
+		LIMIT #{index},10
+	</select>
+	<select id="selectBrandDetailById" parameterType="java.lang.Integer" resultType="com.hpe.ssa.pojo.Brands">
+		SELECT <include refid="Base_Column_List"/>
+		FROM brands WHERE bid=#{bid}
 	</select>
 </mapper>

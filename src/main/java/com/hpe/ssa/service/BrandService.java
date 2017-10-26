@@ -1,10 +1,10 @@
-package com.hpe.ssa.mapper;
+package com.hpe.ssa.service;
 
 import com.hpe.ssa.pojo.Brands;
 
 import java.util.List;
 
-public interface BrandsMapper {
+public interface BrandService {
     //获取品牌总数1
     int selectBrandsNum();
     //获取品牌管理页面品牌列表
