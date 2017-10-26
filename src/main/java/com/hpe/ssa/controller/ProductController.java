@@ -3,6 +3,7 @@ package com.hpe.ssa.controller;
 import com.hpe.ssa.pojo.Shoes;
 import com.hpe.ssa.pojo.Shoes4List;
 import com.hpe.ssa.service.ShoeService;
+import com.hpe.ssa.utils.JsonUtils;
 import com.hpe.ssa.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class ProductController {
     public ModelAndView editShoeById(@PathVariable String sid){
         Shoes shoe = shoeService.selectShoeDetailById(Integer.parseInt(sid));
         ModelAndView mv = new ModelAndView();
-        mv.addObject("shoe",shoe);
+        mv.addObject("shoe",JsonUtils.objectToJson(shoe));
         mv.setViewName("pages/productManagement/shoesEdit");
         return mv;
     }

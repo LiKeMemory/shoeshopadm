@@ -1,10 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="com.hpe.ssa.pojo.Shoes" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-    Shoes shoe = (Shoes) request.getAttribute("shoe");
 %>
 <html>
 <head>
@@ -23,61 +21,77 @@
     <div class="main-content">
         <div class="row">
             <form class="form-horizontal col-sm-offset-2" id="editshoeinfo" method="post">
-                <input type="text"  name="id" hidden>
+                <input type="text"  name="sid" hidden>
                 <div class="form-group">
-                    <label for="sname" class="col-sm-2 control-label">姓名：</label>
+                    <label for="stid" class="col-sm-2 control-label">鞋子类型：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="sname" name="sname">
-                    </div>
-                    <label for="sex" class="col-sm-2 control-label">性别：</label>
-                    <div class="col-sm-4">
-                        <label class="radio-inline">
-                            <input type="radio" id="sex" name="sex" value="男" checked> 男
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="sex" value="女"> 女
-                        </label>
-                    </div>
-                    <label for="direction" class="col-sm-2 control-label">方向：</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="direction" name="direction" >
-                    </div>
-                    <label for="clzname" class="col-sm-2 control-label">班级名称：</label>
-                    <div class="col-sm-4">
-                        <select class="form-control" id="clzname" name="clzname">
+                        <select class="form-control" id="stid" name="stid">
+
                         </select>
                     </div>
-                    <label for="schoolname" class="col-sm-2 control-label">学校名称：</label>
+                    <label for="sbid" class="col-sm-2 control-label">鞋子品牌：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="schoolname" name="schoolname">
+                        <select class="form-control" id="sbid" name="sbid">
+
+                        </select>
                     </div>
-                    <label for="depatment" class="col-sm-2 control-label">系名称：</label>
+                    <label for="snum" class="col-sm-2 control-label">序列号：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="depatment" name="depatment">
+                        <input type="text" class="form-control" id="snum" name="snum" >
                     </div>
-                    <label for="major" class="col-sm-2 control-label">专业名称：</label>
+                    <label for="sname" class="col-sm-2 control-label">鞋子名称：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="major" name="major" >
+                        <input type="text" class="form-control" id="sname" name="sname" >
                     </div>
-                    <label for="card" class="col-sm-2 control-label">身份证号：</label>
+                    <label for="sprices" class="col-sm-2 control-label">鞋子价格：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="card" name="card">
+                        <input type="text" class="form-control" id="sprices" name="sprices" >
                     </div>
-                    <label for="phone" class="col-sm-2 control-label">电话号码：</label>
+                    <label for="spubtime" class="col-sm-2 control-label">发布时间：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="phone" name="phone">
+                        <input type="time" class="form-control" id="spubtime" name="spubtime" >
                     </div>
-                    <label for="address" class="col-sm-2 control-label">家庭住址：</label>
+                    <label for="sproducer" class="col-sm-2 control-label">生产商：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="address" name="address">
+                        <input type="time" class="form-control" id="sproducer" name="sproducer" >
                     </div>
-                    <label for="parentname" class="col-sm-2 control-label">父母姓名：</label>
+                    <label for="sgender" class="col-sm-2 control-label">男女款式：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="parentname" name="parentname">
+                        <label class="radio-inline">
+                            <input type="radio" id="sgender" name="sgender" value="男" checked> 男
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sgender" value="女"> 女
+                        </label>
                     </div>
-                    <label for="parentphone" class="col-sm-2 control-label">父母电话：</label>
+                    <label for="scolor" class="col-sm-2 control-label">颜色：</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="parentphone" name="parentphone">
+                        <input type="text" class="form-control" id="scolor" name="scolor">
+                    </div>
+                    <label for="sinfo" class="col-sm-2 control-label">相关信息：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="sinfo" name="sinfo">
+                    </div>
+                    <label for="stimesold" class="col-sm-2 control-label">卖出数量：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="stimesold" name="stimesold">
+                    </div>
+                    <label for="sdetail" class="col-sm-2 control-label">详细信息：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="sdetail" name="sdetail" >
+                    </div>
+                    <label for="sintegral" class="col-sm-2 control-label">鞋子积分：</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="sintegral" name="sintegral">
+                    </div>
+                    <label for="sdelete" class="col-sm-2 control-label">状态：</label>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="sdelete" name="sdelete" value="0" checked>启用
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sdelete" value="1"> 禁用
+                        </label>
                     </div>
                 </div>
                 <div class="form-group has-error">
@@ -121,6 +135,28 @@
     </div>
 </div>
 <script>
+
+
+    function setShoeDetail() {
+        var shoe = ${requestScope.shoe};
+        $("select[name='stid']").append("<option value=\'"+shoe.stid+"\' selected>"+shoe.stid+"</option>");
+        $("select[name='sbid']").append("<option value=\'"+shoe.sbid+"\' selected>"+shoe.sbid+"</option>");
+        $("input[name='snum']").val(shoe.snum);
+        $("input[name='sname']").val(shoe.sname);
+        $("input[name='sprices']").val(shoe.sprices);
+        $("input[name='sproducer']").val(shoe.sproducer);
+        $("input[name='spubtime']").val(shoe.spubtime);
+        $("input[name='scolor']").val(shoe.scolor);
+        $("input[name='sinfo']").val(shoe.sinfo);
+        $("input[name='stimesold']").val(shoe.stimesold);
+        $("input[name='sdetail']").val(shoe.sdetail);
+        $("input[name='sintegral']").val(shoe.sintegral);
+        $("input[name='sgender'][value='shoe.sgender']").attr("checked",true);
+        $("input[value="+shoe.sgender+"]").attr("checked",'checked');
+        $("input[name='sdelete'][value='shoe.sdelete']").attr("checked",true);
+        $("input[value="+shoe.sdelete+"]").attr("checked",'checked');
+    }
+
     function editshoeinfo() {
         $.ajax({
             url : "update/shoe",

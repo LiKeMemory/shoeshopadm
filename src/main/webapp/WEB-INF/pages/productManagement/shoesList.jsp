@@ -136,7 +136,6 @@
                     $tr.append("<td>"+item.sproducer+"</td>");
                     $tr.append("<td>"+item.sgender+"</td>");
                     $tr.append("<td>"+item.scolor+"</td>");
-                    alert(item.sdelete);
                     if(item.sdelete ==0) {
                         str = "<a class=\"dela\" id=\"del"+item.sid+"\" href=\"javascript:void(0)\" delid=\""+item.sid+"\" del=\"1\">禁用</a>";
                     }else {

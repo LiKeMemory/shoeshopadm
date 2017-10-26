@@ -42,9 +42,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(sid)
 		FROM shoes
 	</select>
-	<select id="selectShoeDetailById" parameterMap="java.lang.Integer" resultMap="shoeDetailMap">
+	<select id="selectShoeDetailById" parameterType="java.lang.Integer" resultMap="shoeDetailMap">
 		SELECT sid,stid,sbid,snum,sname,sprices,spubtime,sproducer,sgender,
-		scolor,sinfo,stimesold,simage,sdetail,sintegral,sdelete,sizeid
+		scolor,sinfo,stimesold,simage,sdetail,sintegral,sdelete,sizeid,sizenum
 		FROM shoes,sizes,shoesizes
 		WHERE s_sid = sid AND s_sizeid = sizeid AND sid=#{sid}
 	</select>
