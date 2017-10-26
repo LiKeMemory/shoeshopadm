@@ -10,7 +10,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<resultMap id="shoeDetailMap" type="com.hpe.ssa.pojo.Shoes">
 		<id column="sid" property="sid"/>
 		<result column="stid" property="stid"/>
+		<result column="tname" property="tname"/>
 		<result column="sbid" property="sbid"/>
+		<result column="bname" property="bname"/>
 		<result column="snum" property="snum"/>
 		<result column="sname" property="sname"/>
 		<result column="sprices" property="sprices"/>
@@ -43,9 +45,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM shoes
 	</select>
 	<select id="selectShoeDetailById" parameterType="java.lang.Integer" resultMap="shoeDetailMap">
-		SELECT sid,stid,sbid,snum,sname,sprices,spubtime,sproducer,sgender,
-		scolor,sinfo,stimesold,simage,sdetail,sintegral,sdelete,sizeid,sizenum
-		FROM shoes,sizes,shoesizes
-		WHERE s_sid = sid AND s_sizeid = sizeid AND sid=#{sid}
+		SELECT sid,stid,tname,sbid,bname,snum,sname,sprices,spubtime,sproducer,sgender,
+		scolor,sinfo,stimesold,simage,sdetail,sintegral,sdelete,sizeid
+		FROM shoes,sizes,shoesizes,types,brands
+		WHERE s_sid = sid AND s_sizeid = sizeid AND stid=tid AND sbid=bid AND sid=#{sid}
 	</select>
 </mapper>
