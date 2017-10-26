@@ -98,7 +98,7 @@
     });
     function getTotalNum() {
         $.ajax({
-            url:"shoesnum",
+            url:"get/shoe/tnum",
             type:"GET",
             async:"true",
             dataType:"json",

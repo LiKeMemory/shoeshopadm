@@ -8,14 +8,14 @@
 <head>
     <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>种类列表</title>
+    <title>定制鞋子列表</title>
 </head>
 <body class="theme-3">
 <jsp:include page="../common/common_head.jsp" flush="false"/>
 <jsp:include page="../common/common_left.jsp" flush="false"/>
 <div class="content">
     <div class="header">
-        <h1 class="page-title">种类列表</h1>
+        <h1 class="page-title">定制鞋子列表</h1>
     </div>
 
     <div class="main-content">
@@ -26,20 +26,27 @@
                 </a> -->
                 <!-- <a class="btn btn-default">导出</a> -->
             </div>
-            <form class="form-inline" action="get/type">
+            <form class="form-inline" action="get/spcshoe">
                 <input type="search" class="input-sm" name="search" value="${search }">
                 <button type="submit" class="btn"><i class="fa fa-search"></i>查询</button>
             </form>
         </div>
-        <table id="typelistab" class="table table-striped table-bordered table-hover">
+        <table id="shoelistab" class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
-                <th>类型编号</th>
-                <th>类型名称</th>
+                <th>编号</th>
+                <th>类型</th>
+                <th>品牌</th>
+                <th>价格</th>
+                <th>序列号</th>
+                <th>名称</th>
+                <th>性别</th>
+                <th>部件个数</th>
+                <th>部件信息</th>
                 <th>处理</th>
             </tr>
             </thead>
-            <tbody id="type">
+            <tbody id="spcshoe">
             <tr class="template">
             </tr>
             </tbody>
@@ -81,12 +88,13 @@
         getTotalNum();
         //异步加载返回数据时间不确定，所以直接获取pageNum可能没有变化，等待0.5秒之后再设置分页
         setTimeout(function () {
-            getTypes(pageNum);
+            getSpcShoes(pageNum);
         },500);
     });
+    //合并
     function getTotalNum() {
         $.ajax({
-            url:"get/type/tnum",
+            url:"get/spcshoe/tnum",
             type:"GET",
             async:"true",
             dataType:"json",
@@ -95,11 +103,11 @@
             }
         });
     }
-    function getTypes(pageNum){
+    function getSpcShoes(pageNum){
         index =(pageNum-1)*10;
         $("tr").remove(".flag");
         $.ajax({
-            url : "get/typeslist",
+            url : "get/spcshoeslist",
             type : "GET",
             async : "true",
             data : {"index":index},
@@ -114,22 +122,26 @@
 //                    clonedTr.removeClass("template");
                     var $tr=$("<tr></tr>");
                     $tr.addClass("flag");  //有时间尝试classList
-                    $tr.append("<td>"+item.tid+"</td>");
+                    $tr.append("<td>"+item.spsid+"</td>");
                     $tr.append("<td>"+item.tname+"</td>");
-                    if(item.tdelete ==0) {
-                        str = "<a class=\"dela\" id=\"del"+item.tid+"\" href=\"javascript:void(0)\" delid=\""+item.tid+"\" del=\"1\">禁用</a>";
-                    }else {
-                        str = "<a class=\"dela\" id=\"del"+item.tid+"\" href=\"javascript:void(0)\" delid=\""+item.tid+"\" del=\"0\">撤销禁用</a>"
-                    }
-                    $tr.append("<td><a href=\"edit/type/"+item.tid+
-                        "\" title=\"修改\"><i class=\"fa fa-pencil\"></i>修改</a>&nbsp;&nbsp;"+str+"</td>");
+                    $tr.append("<td>"+item.bname+"</td>");
+                    $tr.append("<td>"+item.spsprices+"</td>");
+                    $tr.append("<td>"+item.spsseq+"</td>");
+                    $tr.append("<td>"+item.spsname+"</td>");
+                    $tr.append("<td>"+item.spsgender+"</td>");
+                    $tr.append("<td>"+item.spspartnum+"</td>");
+                    $tr.append("<td>"+item.spspartinfo+"</td>");
+
+                    $tr.append("<td><a href=\"edit/spcshoe/"+item.spsid+
+                        "\" title=\"修改\"><i class=\"fa fa-pencil\"></i>修改</a>&nbsp;&nbsp;"
+                        +"<a href='delete/spcshoe/"+item.spsid+"' title='删除'><i class='fa fa-pencil'></i>删除</a></td>");
                     frag.appendChild($tr.get(0));
                 });
-                document.getElementById("type").appendChild(frag);
+                document.getElementById("spcshoe").appendChild(frag);
 //                $("#shoe").appendChild(frag);
             }
         });
-        setPage(pageNum, totalPage, "getTypes");
+        setPage(pageNum, totalPage, "getSpcShoes");
     }
 </script>
 </body>

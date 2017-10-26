@@ -1,10 +1,10 @@
-package com.hpe.ssa.mapper;
+package com.hpe.ssa.service;
 
 import com.hpe.ssa.pojo.SpcifyShoes;
 
 import java.util.List;
 
-public interface SpcifyShoesMapper {
+public interface SpcShoeService {
     //获取定制鞋子总数
     int selectSpcShoesNum();
     //获取定制鞋子管理页面定制鞋子列表

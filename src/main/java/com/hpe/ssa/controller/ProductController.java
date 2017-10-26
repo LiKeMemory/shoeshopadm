@@ -38,7 +38,7 @@ public class ProductController {
         return "pages/productManagement/shoesList";
     }
 
-    @RequestMapping("/shoesnum")
+    @RequestMapping("/get/shoe/tnum")
     @ResponseBody
     public String getTotalNum(){
         return String.valueOf(shoeService.selectShoesNum());

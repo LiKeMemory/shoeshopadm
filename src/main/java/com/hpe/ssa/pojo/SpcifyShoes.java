@@ -4,7 +4,9 @@ package com.hpe.ssa.pojo;
 public class SpcifyShoes {
     private Integer spsid;
     private Integer sp_tid;
+    private String tname;
     private Integer sp_bid;
+    private String bname;
     private String spsseq; //鞋子编号
     private String spsname; //定制鞋名称
     private Float spsprices;
@@ -18,12 +20,14 @@ public class SpcifyShoes {
     public SpcifyShoes() {
     }
 
-    public SpcifyShoes(Integer spsid, Integer sp_tid, Integer sp_bid, String spsseq, String spsname, Float spsprices,
-                       String spscontent, Integer spspartnum, String spspartinfo, String spsgender, Integer spscss,
-                       String spremarks) {
+    public SpcifyShoes(Integer spsid, Integer sp_tid, String tname, Integer sp_bid, String bname, String spsseq,
+                       String spsname, Float spsprices, String spscontent, Integer spspartnum, String spspartinfo,
+                       String spsgender, Integer spscss, String spremarks) {
         this.spsid = spsid;
         this.sp_tid = sp_tid;
+        this.tname = tname;
         this.sp_bid = sp_bid;
+        this.bname = bname;
         this.spsseq = spsseq;
         this.spsname = spsname;
         this.spsprices = spsprices;
@@ -49,6 +53,22 @@ public class SpcifyShoes {
 
     public void setSp_tid(Integer sp_tid) {
         this.sp_tid = sp_tid;
+    }
+
+    public String getTname() {
+        return tname;
+    }
+
+    public void setTname(String tname) {
+        this.tname = tname;
+    }
+
+    public String getBname() {
+        return bname;
+    }
+
+    public void setBname(String bname) {
+        this.bname = bname;
     }
 
     public Integer getSp_bid() {
@@ -136,7 +156,9 @@ public class SpcifyShoes {
         return "SpcifyShoes{" +
                 "spsid=" + spsid +
                 ", sp_tid=" + sp_tid +
+                ", tname='" + tname + '\'' +
                 ", sp_bid=" + sp_bid +
+                ", bname='" + bname + '\'' +
                 ", spsseq='" + spsseq + '\'' +
                 ", spsname='" + spsname + '\'' +
                 ", spsprices=" + spsprices +

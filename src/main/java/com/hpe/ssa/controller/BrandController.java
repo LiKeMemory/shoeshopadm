@@ -23,7 +23,7 @@ public class BrandController {
         return "pages/productManagement/brandsList";
     }
 
-    @RequestMapping("/brandsnum")
+    @RequestMapping("/get/brand/tnum")
     @ResponseBody
     public String getTotalNum(){
         return String.valueOf(brandService.selectBrandsNum());

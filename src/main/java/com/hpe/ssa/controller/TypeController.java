@@ -24,7 +24,7 @@ public class TypeController {
         return "pages/productManagement/typesList";
     }
 
-    @RequestMapping("/typesnum")
+    @RequestMapping("/get/type/tnum")
     @ResponseBody
     public String getTotalNum(){
         return String.valueOf(typeService.selectTypesNum());

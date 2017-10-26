@@ -87,7 +87,7 @@
     });
     function getTotalNum() {
         $.ajax({
-            url:"brandsnum",
+            url:"get/brand/tnum",
             type:"GET",
             async:"true",
             dataType:"json",
