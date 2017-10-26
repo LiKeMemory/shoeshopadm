@@ -224,7 +224,6 @@
         $("input[name='sdelete'][value='shoe.sdelete']").attr("checked",true);
         $("input[value="+shoe.sdelete+"]").attr("checked",'checked');
         var sizeList = $("input[name='sizeList']");
-        alert(sizeList);
         $.each(shoe.sizeList,function (index,item) {
             $.each(sizeList,function (inner_index,inner_item) {
                 if(item.sizeid==inner_item.value){

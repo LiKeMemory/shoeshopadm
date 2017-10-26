@@ -1,6 +1,5 @@
 package com.hpe.ssa.controller;
 
-import com.hpe.ssa.pojo.Brands;
 import com.hpe.ssa.pojo.SpcifyShoes;
 import com.hpe.ssa.service.SpcShoeService;
 import com.hpe.ssa.utils.JsonUtils;
@@ -40,7 +39,7 @@ public class SpcShoeController {
     public ModelAndView editTypeById(@PathVariable String spsid){
         SpcifyShoes spcifyShoe = spcShoeService.selectSpcShoeDetailById(Integer.parseInt(spsid));
         ModelAndView mv = new ModelAndView();
-        mv.addObject("spcifyShoe", JsonUtils.objectToJson(spcifyShoe));
+        mv.addObject("spcShoe", JsonUtils.objectToJson(spcifyShoe));
         mv.setViewName("pages/productManagement/spcshoesEdit");
         return mv;
     }
