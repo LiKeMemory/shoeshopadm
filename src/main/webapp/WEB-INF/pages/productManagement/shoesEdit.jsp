@@ -206,8 +206,8 @@
     function setShoeDetail() {
         var shoe = ${requestScope.shoe};
         $("input[name='sid']").val(shoe.sid);
-        $("select[name='tname']").append("<option value=\'"+shoe.tname+"\' selected>"+shoe.tname+"</option>");
-        $("select[name='bname']").append("<option value=\'"+shoe.bname+"\' selected>"+shoe.bname+"</option>");
+        $("select[name='tname']").append("<option value=\'"+shoe.stid+"\' selected>"+shoe.tname+"</option>");
+        $("select[name='bname']").append("<option value=\'"+shoe.sbid+"\' selected>"+shoe.bname+"</option>");
         $("input[name='snum']").val(shoe.snum);
         $("input[name='sname']").val(shoe.sname);
         $("input[name='sprices']").val(shoe.sprices);
