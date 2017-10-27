@@ -50,4 +50,133 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM shoes,sizes,shoesizes,types,brands
 		WHERE s_sid = sid AND s_sizeid = sizeid AND stid=tid AND sbid=bid AND sid=#{sid}
 	</select>
+	<insert id="insertShoeSize" parameterType="java.util.List">
+		insert into shoesizes(s_sid,s_sizeid,sstate,ssremarks,scount)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.s_sid},#{item.s_sizeid},#{item.sstate},#{item.ssremarks},#{item.scount})
+		</foreach>
+	</insert>
+	<insert id="insertSelective" useGeneratedKeys="true" keyProperty="sid" parameterType="com.hpe.ssa.pojo.Shoes" >
+		insert into shoes
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="sid != null" >
+				sid,
+			</if>
+			<if test="stid != null" >
+				stid,
+			</if>
+			<if test="sbid != null" >
+				sbid,
+			</if>
+			<if test="snum != null" >
+				snum,
+			</if>
+			<if test="sname != null" >
+				sname,
+			</if>
+			<if test="sprices != null" >
+				sprices,
+			</if>
+			<if test="sdiscount != null" >
+				sdiscount,
+			</if>
+			<if test="spubtime != null" >
+				spubtime,
+			</if>
+			<if test="sproducer != null" >
+				sproducer,
+			</if>
+			<if test="sgender != null" >
+				sgender,
+			</if>
+			<if test="scolor != null" >
+				scolor,
+			</if>
+			<if test="sinfo != null" >
+				sinfo,
+			</if>
+			<if test="stimesold != null" >
+				stimesold,
+			</if>
+			<if test="simage != null" >
+				simage,
+			</if>
+			<if test="sdetail != null" >
+				sdetail,
+			</if>
+			<if test="sintegral != null" >
+				sintegral,
+			</if>
+			<if test="sdelete != null" >
+				sdelete,
+			</if>
+			<if test="sremarks != null" >
+				sremarks,
+			</if>
+			<if test="sandroidimg != null" >
+				sandroidimg,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="sid != null" >
+				#{sid,jdbcType=INTEGER},
+			</if>
+			<if test="stid != null" >
+				#{stid,jdbcType=INTEGER},
+			</if>
+			<if test="sbid != null" >
+				#{sbid,jdbcType=INTEGER},
+			</if>
+			<if test="snum != null" >
+				#{snum,jdbcType=VARCHAR},
+			</if>
+			<if test="sname != null" >
+				#{sname,jdbcType=VARCHAR},
+			</if>
+			<if test="sprices != null" >
+				#{sprices,jdbcType=FLOAT},
+			</if>
+			<if test="sdiscount != null" >
+				#{sdiscount,jdbcType=INTEGER},
+			</if>
+			<if test="spubtime != null" >
+				#{spubtime,jdbcType=DATE},
+			</if>
+			<if test="sproducer != null" >
+				#{sproducer,jdbcType=VARCHAR},
+			</if>
+			<if test="sgender != null" >
+				#{sgender,jdbcType=VARCHAR},
+			</if>
+			<if test="scolor != null" >
+				#{scolor,jdbcType=VARCHAR},
+			</if>
+			<if test="sinfo != null" >
+				#{sinfo,jdbcType=VARCHAR},
+			</if>
+			<if test="stimesold != null" >
+				#{stimesold,jdbcType=INTEGER},
+			</if>
+			<if test="simage != null" >
+				#{simage,jdbcType=VARCHAR},
+			</if>
+			<if test="sdetail != null" >
+				#{sdetail,jdbcType=VARCHAR},
+			</if>
+			<if test="sintegral != null" >
+				#{sintegral,jdbcType=FLOAT},
+			</if>
+			<if test="sdelete != null" >
+				#{sdelete,jdbcType=INTEGER},
+			</if>
+			<if test="sremarks != null" >
+				#{sremarks,jdbcType=VARCHAR},
+			</if>
+			<if test="sandroidimg != null" >
+				#{sandroidimg,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
 </mapper>

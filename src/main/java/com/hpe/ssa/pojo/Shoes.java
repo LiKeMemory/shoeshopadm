@@ -1,5 +1,6 @@
 package com.hpe.ssa.pojo;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Shoes {
     private String sremarks;
     private String sandroidimg;
     private List<Sizes> sizeList;
-
+    private Integer[] sizeChoose;
 
     public Shoes() {
     }
@@ -236,6 +237,14 @@ public class Shoes {
         this.sizeList = sizeList;
     }
 
+    public Integer[] getSizeChoose() {
+        return sizeChoose;
+    }
+
+    public void setSizeChoose(Integer[] sizeChoose) {
+        this.sizeChoose = sizeChoose;
+    }
+
     @Override
     public String toString() {
         return "Shoes{" +
@@ -261,6 +270,7 @@ public class Shoes {
                 ", sremarks='" + sremarks + '\'' +
                 ", sandroidimg='" + sandroidimg + '\'' +
                 ", sizeList=" + sizeList +
+                ", sizeChoose=" + Arrays.toString(sizeChoose) +
                 '}';
     }
 }

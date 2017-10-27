@@ -1,5 +1,6 @@
 package com.hpe.ssa.service;
 
+import com.hpe.ssa.pojo.ShoeSizes;
 import com.hpe.ssa.pojo.Shoes;
 import com.hpe.ssa.pojo.Shoes4List;
 
@@ -12,4 +13,7 @@ public interface ShoeService {
     List<Shoes4List> selectShoes4List(int index);
     //根据sid获取鞋子详情
     Shoes selectShoeDetailById(int sid);
+    //新增鞋子
+    int insertShoe(Shoes shoe);
+
 }
