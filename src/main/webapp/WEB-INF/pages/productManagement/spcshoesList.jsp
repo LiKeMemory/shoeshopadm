@@ -21,9 +21,8 @@
     <div class="main-content">
         <div class="row">
             <div class="btn-toolbar list-toolbar col-lg-4">
-                <!-- <a class="btn btn-primary" href="userInput.jsp">
-                    <i class="fa fa-plus"></i> 新增用户
-                </a> -->
+                <a class="btn btn-primary" href="spcshoeinput">
+                    <i class="fa fa-plus"></i> 新增定制鞋</a>
                 <!-- <a class="btn btn-default">导出</a> -->
             </div>
             <form class="form-inline" action="get/spcshoe">

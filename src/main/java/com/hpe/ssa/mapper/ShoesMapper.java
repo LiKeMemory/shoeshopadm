@@ -14,11 +14,11 @@ public interface ShoesMapper {
     List<Shoes4List> selectShoes4List(int index);
     //根据sid获取鞋子详情
     Shoes selectShoeDetailById(int sid);
-
+    //新增鞋子
     int insertSelective(Shoes shoe);
-
+    //新增鞋子尺码
     int insertShoeSize(List<ShoeSizes> list);
-
+    //根据sid获取鞋子尺码
     List<Sizes> selectShoeSizeById(int sid);
 
 

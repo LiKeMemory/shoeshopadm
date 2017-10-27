@@ -1,5 +1,6 @@
 package com.hpe.ssa.mapper;
 
+import com.hpe.ssa.pojo.ShoeSizes;
 import com.hpe.ssa.pojo.SpcifyShoes;
 
 import java.util.List;
@@ -11,4 +12,8 @@ public interface SpcifyShoesMapper {
     List<SpcifyShoes> selectSpcShoes4List(int index);
     //根据spsid获取定制鞋子详情
     SpcifyShoes selectSpcShoeDetailById(int spsid);
+    //新增定制鞋
+    int insertSelective(SpcifyShoes spcifyShoe);
+    //新增定制鞋尺码
+    int insertSpcShoeSize(List<ShoeSizes> list);
 }
