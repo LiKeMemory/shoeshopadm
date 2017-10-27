@@ -11,4 +11,6 @@ public interface SpcShoeService {
     List<SpcifyShoes> selectSpcShoes4List(int index);
     //根据spsid获取定制鞋子详情
     SpcifyShoes selectSpcShoeDetailById(int spsid);
+
+    int insertSpcShoe(SpcifyShoes spcifyShoe);
 }
