@@ -1,8 +1,10 @@
 package com.hpe.ssa.controller;
 
 import com.hpe.ssa.pojo.Brands;
+import com.hpe.ssa.pojo.Shoes;
 import com.hpe.ssa.service.BrandService;
 import com.hpe.ssa.utils.JsonUtils;
+import com.hpe.ssa.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,5 +49,20 @@ public class BrandController {
     @ResponseBody
     public List<Brands> getBrandNames(){
         return brandService.selectBrandNames();
+    }
+
+    @RequestMapping("/brandinput")
+    public String showShoeAddPage(){
+        return "pages/productManagement/brandsAdd";
+    }
+
+    @RequestMapping(value = "/add/brand",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultUtil addNewBrand(Brands brand){
+        if (brandService.insertBrand(brand) !=0){
+            return new ResultUtil("1","成功");
+        }else {
+            return new ResultUtil("0","失败");
+        }
     }
 }

@@ -65,7 +65,7 @@ public class ProductController {
 
     @RequestMapping(value = "/add/shoe",method = RequestMethod.POST)
     @ResponseBody
-    public ResultUtil addNewShow(Shoes shoe){
+    public ResultUtil addNewShoe(Shoes shoe){
         if (shoeService.insertShoe(shoe) !=0){
             return new ResultUtil("1","成功");
         }else {

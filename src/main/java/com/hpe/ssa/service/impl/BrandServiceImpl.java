@@ -32,4 +32,9 @@ public class BrandServiceImpl implements BrandService {
     public List<Brands> selectBrandNames() {
         return brandsMapper.selectBrandNames();
     }
+
+    @Override
+    public int insertBrand(Brands brand) {
+        return brandsMapper.insertSelective(brand);
+    }
 }

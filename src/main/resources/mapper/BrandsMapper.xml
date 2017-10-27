@@ -24,4 +24,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectBrandNames" resultType="com.hpe.ssa.pojo.Brands">
 		SELECT bid,bname from brands
 	</select>
+	<insert id="insertSelective" parameterType="com.hpe.ssa.pojo.Brands" >
+		insert into brands
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="bid != null" >
+				bid,
+			</if>
+			<if test="bname != null" >
+				bname,
+			</if>
+			<if test="bsex != null" >
+				bsex,
+			</if>
+			<if test="bstate != null" >
+				bstate,
+			</if>
+			<if test="bremarks != null" >
+				bremarks,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="bid != null" >
+				#{bid,jdbcType=INTEGER},
+			</if>
+			<if test="bname != null" >
+				#{bname,jdbcType=VARCHAR},
+			</if>
+			<if test="bsex != null" >
+				#{bsex,jdbcType=VARCHAR},
+			</if>
+			<if test="bstate != null" >
+				#{bstate,jdbcType=INTEGER},
+			</if>
+			<if test="bremarks != null" >
+				#{bremarks,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
 </mapper>

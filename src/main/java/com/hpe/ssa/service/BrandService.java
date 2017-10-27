@@ -13,4 +13,6 @@ public interface BrandService {
     Brands selectBrandDetailById(int bid);
     //获取所有品牌名称
     List<Brands> selectBrandNames();
+    //新增品牌
+    int insertBrand(Brands brand);
 }
