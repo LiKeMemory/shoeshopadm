@@ -1,7 +1,6 @@
 package com.hpe.ssa.mapper;
 
 import com.hpe.ssa.pojo.Brands;
-import com.hpe.ssa.pojo.Shoes;
 
 import java.util.List;
 
@@ -14,6 +13,4 @@ public interface BrandsMapper {
     Brands selectBrandDetailById(int bid);
     //获取所有品牌名称
     List<Brands> selectBrandNames();
-    //新增品牌
-    int insertSelective(Brands brand);
 }

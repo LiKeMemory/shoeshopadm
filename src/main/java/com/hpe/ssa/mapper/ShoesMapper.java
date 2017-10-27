@@ -3,7 +3,6 @@ package com.hpe.ssa.mapper;
 import com.hpe.ssa.pojo.ShoeSizes;
 import com.hpe.ssa.pojo.Shoes;
 import com.hpe.ssa.pojo.Shoes4List;
-import com.hpe.ssa.pojo.Sizes;
 
 import java.util.List;
 
@@ -18,8 +17,4 @@ public interface ShoesMapper {
     int insertSelective(Shoes shoe);
 
     int insertShoeSize(List<ShoeSizes> list);
-
-    List<Sizes> selectShoeSizeById(int sid);
-
-
 }
