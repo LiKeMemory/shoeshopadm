@@ -32,7 +32,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="sremarks" property="sremarks"/>
 		</collection>
 	</resultMap>
-
+	<select id="selectShoeSizeById" parameterType="java.lang.Integer" resultType="com.hpe.ssa.pojo.Sizes">
+		SELECT sizeid,sizenum FROM shoesizes,sizes WHERE sizeid=s_sizeid AND s_sid=#{sid}
+	</select>
 	<select id="selectShoes4List" parameterType="java.lang.Integer" resultType="com.hpe.ssa.pojo.Shoes4List">
 		SELECT sid,tname,bname,sname,sprices,sproducer,sgender,scolor,sdelete
 		FROM shoes,types,brands
@@ -44,11 +46,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(sid)
 		FROM shoes
 	</select>
-	<select id="selectShoeDetailById" parameterType="java.lang.Integer" resultMap="shoeDetailMap">
+	<select id="selectShoeDetailById" parameterType="java.lang.Integer" resultType="com.hpe.ssa.pojo.Shoes">
 		SELECT sid,stid,tname,sbid,bname,snum,sname,sprices,spubtime,sproducer,sgender,
-		scolor,sinfo,stimesold,simage,sdetail,sintegral,sdelete,sizeid
-		FROM shoes,sizes,shoesizes,types,brands
-		WHERE s_sid = sid AND s_sizeid = sizeid AND stid=tid AND sbid=bid AND sid=#{sid}
+		scolor,sinfo,stimesold,simage,sdetail,sintegral,sdelete
+		FROM shoes,types,brands
+		WHERE  stid=tid AND sbid=bid AND sid=#{sid}
 	</select>
 	<insert id="insertShoeSize" parameterType="java.util.List">
 		insert into shoesizes(s_sid,s_sizeid,sstate,ssremarks,scount)

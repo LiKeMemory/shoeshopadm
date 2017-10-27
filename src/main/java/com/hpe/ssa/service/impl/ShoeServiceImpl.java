@@ -24,7 +24,10 @@ public class ShoeServiceImpl implements ShoeService {
 
     @Override
     public Shoes selectShoeDetailById(int sid) {
-        return shoesMapper.selectShoeDetailById(sid);
+        shoesMapper.selectShoeSizeById(sid);
+        Shoes shoe = shoesMapper.selectShoeDetailById(sid);
+        shoe.setSizeList( shoesMapper.selectShoeSizeById(sid));
+        return shoe;
     }
     //Shoes{sid=null, stid=null, tname='1', sbid=null, bname='1', snum='11231', sname='dddd', sprices=123.0,
     // sdiscount=null, spubtime=Tue Oct 03 00:00:00 CST 2017, sproducer='123123', sgender='男', scolor='123df',
