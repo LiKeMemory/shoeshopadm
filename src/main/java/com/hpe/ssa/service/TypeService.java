@@ -1,6 +1,5 @@
 package com.hpe.ssa.service;
 
-import com.hpe.ssa.pojo.Shoes;
 import com.hpe.ssa.pojo.Types;
 
 import java.util.List;
@@ -15,4 +14,6 @@ public interface TypeService {
     Types selectTypeDetailById(int tid);
     //获取所有类型名称
     List<Types> selectTypeNames();
+    //新增种类
+    int insertType(Types type);
 }

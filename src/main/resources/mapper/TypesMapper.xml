@@ -24,4 +24,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectTypeNames" resultType="com.hpe.ssa.pojo.Types">
 		SELECT tid,tname from types
 	</select>
+	<insert id="insertSelective" parameterType="com.hpe.ssa.pojo.Types" >
+		insert into types
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="tid != null" >
+				tid,
+			</if>
+			<if test="tname != null" >
+				tname,
+			</if>
+			<if test="tremarks != null" >
+				tremarks,
+			</if>
+			<if test="tdelete != null" >
+				tdelete,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="tid != null" >
+				#{tid,jdbcType=INTEGER},
+			</if>
+			<if test="tname != null" >
+				#{tname,jdbcType=VARCHAR},
+			</if>
+			<if test="tremarks != null" >
+				#{tremarks,jdbcType=VARCHAR},
+			</if>
+			<if test="tdelete != null" >
+				#{tdelete,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
 </mapper>

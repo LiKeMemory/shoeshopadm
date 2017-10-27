@@ -14,4 +14,6 @@ public interface TypesMapper {
     Types selectTypeDetailById(int tid);
     //获取所有类型名称
     List<Types> selectTypeNames();
+    //新增种类
+    int insertSelective(Types type);
 }

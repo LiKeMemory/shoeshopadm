@@ -1,8 +1,10 @@
 package com.hpe.ssa.controller;
 
+import com.hpe.ssa.pojo.Brands;
 import com.hpe.ssa.pojo.Types;
 import com.hpe.ssa.service.TypeService;
 import com.hpe.ssa.utils.JsonUtils;
+import com.hpe.ssa.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,5 +51,20 @@ public class TypeController {
     @ResponseBody
     public List<Types> getTypeNames(){
         return typeService.selectTypeNames();
+    }
+
+    @RequestMapping("/typeinput")
+    public String showShoeAddPage(){
+        return "pages/productManagement/typesAdd";
+    }
+
+    @RequestMapping(value = "/add/type",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultUtil addNewType(Types type){
+        if (typeService.insertType(type) !=0){
+            return new ResultUtil("1","成功");
+        }else {
+            return new ResultUtil("0","失败");
+        }
     }
 }

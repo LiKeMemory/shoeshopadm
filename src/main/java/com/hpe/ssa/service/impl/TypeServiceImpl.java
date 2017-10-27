@@ -32,4 +32,9 @@ public class TypeServiceImpl implements TypeService {
     public List<Types> selectTypeNames() {
         return typesMapper.selectTypeNames();
     }
+
+    @Override
+    public int insertType(Types type) {
+        return typesMapper.insertSelective(type);
+    }
 }
