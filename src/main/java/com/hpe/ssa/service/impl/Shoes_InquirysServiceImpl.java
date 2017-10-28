@@ -26,7 +26,7 @@ public class Shoes_InquirysServiceImpl implements Shoes_InquirysService {
     }
 
     @Override
-    public int updateShoes_Inquirys(Shoes_Inquirys si) {
-        return shoes_inquirysMapper.updateShoes_Inquirys(si);
+    public int updateShoes_Inquirys(int sqid,String sqanswer) {
+        return shoes_inquirysMapper.updateShoes_Inquirys(sqid,sqanswer);
     }
 }

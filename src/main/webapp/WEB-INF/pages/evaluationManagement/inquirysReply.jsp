@@ -95,11 +95,14 @@ $(function () {
     };
 
     function editInquirysinfo() {
+        var sqid=$("input[name='sqid']").val();
+        var sqanswer=$("input[name='sqanswer']").val();
         $.ajax({
             url : "update/inquirys",
             type : "POST",
             async : "true",
-            data : $("Inquirysinfo").serialize(),
+            data : {"sqid":sqid,
+            "sqanswer":sqanswer},
             dataType : "json",
             success : function(data) {
                 if (data.res == 1){

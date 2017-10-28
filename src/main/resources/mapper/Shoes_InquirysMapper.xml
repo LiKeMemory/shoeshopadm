@@ -36,16 +36,12 @@
         SELECT COUNT(sqid)
         FROM shoes_inquirys
     </select>
-    <update id="updateShoes_Inquirys" parameterType="com.hpe.ssa.pojo.Shoes_Inquirys">
+    <update id="updateShoes_Inquirys" >
         UPDATE shoes_inquirys
         <set>
-            <if test="sqanswer!=null">
-                sqanswer=#{sqanswer}
-            </if>
+                sqanswer=#{arg1,jdbcType=VARCHAR}
         </set>
         WHERE
-        <if test="sqid!=null">
-            sqid=#{sqid}
-        </if>
+            sqid=#{arg0,jdbcType=INTEGER}
     </update>
 </mapper>

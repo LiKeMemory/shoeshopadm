@@ -14,5 +14,5 @@ public interface Shoes_InquirysMapper {
     //根据id获取鞋子咨询信息
      Shoes_Inquirys selectBySqid (int sqid);
     //回复某条用户咨询
-    int updateShoes_Inquirys(Shoes_Inquirys si);
+    int updateShoes_Inquirys(int sqid,String sqanswer);
 }

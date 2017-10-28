@@ -45,9 +45,8 @@ public class InquirysController {
     }
     @RequestMapping(value = "update/inquirys",method = RequestMethod.POST)
     @ResponseBody
-    public ResultUtil updateInquirysById(Shoes_Inquirys si){
-        System.out.println(si.getSqanswer()+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+si.getSqid());
-        int r=shoes_inquirysMapper.updateShoes_Inquirys(si);
+    public ResultUtil updateInquirysById(String sqid,String sqanswer){
+        int r=shoes_inquirysMapper.updateShoes_Inquirys(Integer.parseInt(sqid),sqanswer);
         if (r!=0){
             return new ResultUtil("1","回复成功");
         }
