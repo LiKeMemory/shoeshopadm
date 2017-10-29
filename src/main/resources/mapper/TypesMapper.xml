@@ -55,4 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</insert>
+	<update id="updateTypeState" parameterType="com.hpe.ssa.pojo.Types">
+		UPDATE types SET tdelete=#{tdelete} WHERE tid = #{tid}
+	</update>
 </mapper>

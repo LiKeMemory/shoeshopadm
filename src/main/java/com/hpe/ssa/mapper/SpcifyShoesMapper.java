@@ -16,4 +16,8 @@ public interface SpcifyShoesMapper {
     int insertSelective(SpcifyShoes spcifyShoe);
     //新增定制鞋尺码
     int insertSpcShoeSize(List<ShoeSizes> list);
+    //删除定制鞋
+    int deleteSpcShoeById(int spsid);
+    //删除定制鞋的尺码
+    int deleteSpcShoeSize(int spsid);
 }

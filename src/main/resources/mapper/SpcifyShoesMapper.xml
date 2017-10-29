@@ -109,4 +109,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</insert>
+	<delete id="deleteSpcShoeById" parameterType="java.lang.Integer">
+		DELETE FROM spcify_shoes WHERE spsid=#{spsid}
+	</delete>
+	<delete id="deleteSpcShoeSize" parameterType="java.lang.Integer">
+		DELETE FROM sps_sizes WHERE sp_sid=#{spsid}
+	</delete>
 </mapper>

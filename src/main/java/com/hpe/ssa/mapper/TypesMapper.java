@@ -1,5 +1,6 @@
 package com.hpe.ssa.mapper;
 
+import com.hpe.ssa.pojo.Brands;
 import com.hpe.ssa.pojo.Types;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface TypesMapper {
     List<Types> selectTypeNames();
     //新增种类
     int insertSelective(Types type);
+    //禁用以及撤销禁用
+    int updateTypeState(Types type);
 }

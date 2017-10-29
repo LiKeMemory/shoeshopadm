@@ -15,5 +15,7 @@ public interface ShoeService {
     Shoes selectShoeDetailById(int sid);
     //新增鞋子
     int insertShoe(Shoes shoe);
+    //禁用以及撤销禁用
+    int updateShoeState(int delid,int del);
 
 }

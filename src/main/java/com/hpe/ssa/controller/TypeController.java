@@ -67,4 +67,13 @@ public class TypeController {
             return new ResultUtil("0","失败");
         }
     }
+    @RequestMapping(value = "/chg/type/state",method = RequestMethod.GET)
+    @ResponseBody
+    public ResultUtil chgBrandState(int delid,int del){
+        if (typeService.updateTypeState(delid,del)!=0){
+            return new ResultUtil("1","成功");
+        }else {
+            return new ResultUtil("0","失败");
+        }
+    }
 }

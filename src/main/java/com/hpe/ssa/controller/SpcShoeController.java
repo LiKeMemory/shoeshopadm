@@ -61,4 +61,13 @@ public class SpcShoeController {
             return new ResultUtil("0","失败");
         }
     }
+    @RequestMapping(value = "/delete/spcshoe/{spsid}",method = RequestMethod.GET)
+    @ResponseBody
+    public ResultUtil chgBrandState(@PathVariable int spsid){
+        if (spcShoeService.deleteSpcShoeById(spsid)!=0){
+            return new ResultUtil("1","成功");
+        }else {
+            return new ResultUtil("0","失败");
+        }
+    }
 }

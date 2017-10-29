@@ -37,4 +37,12 @@ public class BrandServiceImpl implements BrandService {
     public int insertBrand(Brands brand) {
         return brandsMapper.insertSelective(brand);
     }
+
+    @Override
+    public int updateBrandState(int delid, int del) {
+        Brands brand = new Brands();
+        brand.setBid(delid);
+        brand.setBstate(del);
+        return brandsMapper.updateBrandState(brand);
+    }
 }
