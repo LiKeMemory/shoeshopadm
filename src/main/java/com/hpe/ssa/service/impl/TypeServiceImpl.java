@@ -45,4 +45,9 @@ public class TypeServiceImpl implements TypeService {
         type.setTdelete(del);
         return typesMapper.updateTypeState(type);
     }
+
+    @Override
+    public int updateTypeInfo(Types type) {
+        return typesMapper.updateByPrimaryKeySelective(type);
+    }
 }

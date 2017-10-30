@@ -70,4 +70,14 @@ public class SpcShoeController {
             return new ResultUtil("0","失败");
         }
     }
+
+    @RequestMapping(value = "/update/spcshoe",method = RequestMethod.POST)
+    @ResponseBody
+    public ResultUtil updateSpcShoeInfo(SpcifyShoes spcifyShoe){
+        if (spcShoeService.updateSpcShoeInfo(spcifyShoe)!=0){
+            return new ResultUtil("1","成功");
+        }else {
+            return new ResultUtil("0","失败");
+        }
+    }
 }

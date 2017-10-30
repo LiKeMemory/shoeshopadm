@@ -53,4 +53,9 @@ public class SpcShoeServiceImpl implements SpcShoeService {
         spcifyShoesMapper.deleteSpcShoeSize(spsid);
         return spcifyShoesMapper.deleteSpcShoeById(spsid);
     }
+
+    @Override
+    public int updateSpcShoeInfo(SpcifyShoes spcifyShoe) {
+        return spcifyShoesMapper.updateByPrimaryKeySelective(spcifyShoe);
+    }
 }
