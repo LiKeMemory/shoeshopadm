@@ -18,4 +18,6 @@ public interface BrandsMapper {
     int insertSelective(Brands brand);
     //禁用以及撤销禁用
     int updateBrandState(Brands brand);
+    //修改品牌
+    int updateByPrimaryKeySelective(Brands brand);
 }

@@ -45,4 +45,9 @@ public class BrandServiceImpl implements BrandService {
         brand.setBstate(del);
         return brandsMapper.updateBrandState(brand);
     }
+
+    @Override
+    public int updateBrandInfo(Brands brand) {
+        return brandsMapper.updateByPrimaryKeySelective(brand);
+    }
 }

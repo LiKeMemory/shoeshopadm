@@ -1,6 +1,5 @@
 package com.hpe.ssa.mapper;
 
-import com.hpe.ssa.pojo.Brands;
 import com.hpe.ssa.pojo.Types;
 import org.springframework.stereotype.Service;
 
@@ -20,4 +19,6 @@ public interface TypesMapper {
     int insertSelective(Types type);
     //禁用以及撤销禁用
     int updateTypeState(Types type);
+    //修改类型
+    int updateByPrimaryKeySelective(Types type);
 }

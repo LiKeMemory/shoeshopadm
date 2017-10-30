@@ -17,4 +17,7 @@ public interface BrandService {
     int insertBrand(Brands brand);
     //禁用以及撤销禁用
     int updateBrandState(int delid,int del);
+    //修改品牌
+    int updateBrandInfo(Brands brand);
+
 }

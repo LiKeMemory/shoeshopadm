@@ -15,4 +15,6 @@ public interface SpcShoeService {
     int insertSpcShoe(SpcifyShoes spcifyShoe);
     //删除定制鞋
     int deleteSpcShoeById(int spsid);
+    //修改定制鞋
+    int updateSpcShoeInfo(SpcifyShoes spcifyShoe);
 }

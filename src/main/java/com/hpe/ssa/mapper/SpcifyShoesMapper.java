@@ -21,4 +21,6 @@ public interface SpcifyShoesMapper {
     int deleteSpcShoeById(int spsid);
     //删除定制鞋的尺码
     int deleteSpcShoeSize(int spsid);
+    //修改定制鞋
+    int updateByPrimaryKeySelective(SpcifyShoes spcifyShoe);
 }
