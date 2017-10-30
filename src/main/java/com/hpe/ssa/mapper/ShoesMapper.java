@@ -1,9 +1,6 @@
 package com.hpe.ssa.mapper;
 
-import com.hpe.ssa.pojo.ShoeSizes;
-import com.hpe.ssa.pojo.Shoes;
-import com.hpe.ssa.pojo.Shoes4List;
-import com.hpe.ssa.pojo.Sizes;
+import com.hpe.ssa.pojo.*;
 
 import java.util.List;
 
@@ -20,6 +17,7 @@ public interface ShoesMapper {
     int insertShoeSize(List<ShoeSizes> list);
     //根据sid获取鞋子尺码
     List<Sizes> selectShoeSizeById(int sid);
-
+    //禁用以及撤销禁用
+    int updateShoeState(Shoes shoe);
 
 }

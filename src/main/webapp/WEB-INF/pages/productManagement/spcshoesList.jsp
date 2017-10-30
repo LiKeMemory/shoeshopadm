@@ -130,10 +130,10 @@
                     $tr.append("<td>"+item.spsgender+"</td>");
                     $tr.append("<td>"+item.spspartnum+"</td>");
                     $tr.append("<td>"+item.spspartinfo+"</td>");
-
+                    //delete/spcshoe/"+item.spsid+"
                     $tr.append("<td><a href=\"edit/spcshoe/"+item.spsid+
                         "\" title=\"修改\"><i class=\"fa fa-pencil\"></i>修改</a>&nbsp;&nbsp;"
-                        +"<a href='delete/spcshoe/"+item.spsid+"' title='删除'><i class='fa fa-pencil'></i>删除</a></td>");
+                        +"<a href='javascript:void(0)' onclick='delSpcShoe(this)' data-delid='"+item.spsid+"' title='删除'><i class='fa fa-pencil'></i>删除</a></td>");
                     frag.appendChild($tr.get(0));
                 });
                 document.getElementById("spcshoe").appendChild(frag);
@@ -141,6 +141,24 @@
             }
         });
         setPage(pageNum, totalPage, "getSpcShoes");
+    }
+    function delSpcShoe(e) {
+        var delid = e.getAttribute("data-delid");
+        $.ajax({
+            url : "/delete/spcshoe/"+delid,
+            type : "GET",
+            async : "true",
+            dataType : "json",
+            success : function(data) {
+                if (data.res == 1){
+                    alert(data.info);
+                    window.location.reload();
+                }
+                else {
+                    $(".text-warning").text(data.info);
+                }
+            }
+        });
     }
 </script>
 </body>

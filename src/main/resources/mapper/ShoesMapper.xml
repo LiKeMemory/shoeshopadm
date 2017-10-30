@@ -180,5 +180,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</insert>
-
+	<update id="updateShoeState" parameterType="com.hpe.ssa.pojo.Shoes">
+		UPDATE shoes SET sdelete=#{sdelete} WHERE sid = #{sid}
+	</update>
 </mapper>
