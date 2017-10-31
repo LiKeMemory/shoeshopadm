@@ -3,7 +3,6 @@ package com.hpe.ssa.mapper;
 import com.hpe.ssa.pojo.*;
 
 import java.util.List;
-
 public interface ShoesMapper {
     //获取鞋子总数1
     int selectShoesNum();

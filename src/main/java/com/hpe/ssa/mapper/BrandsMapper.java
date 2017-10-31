@@ -4,7 +4,6 @@ import com.hpe.ssa.pojo.Brands;
 import com.hpe.ssa.pojo.Shoes;
 
 import java.util.List;
-
 public interface BrandsMapper {
     //获取品牌总数1
     int selectBrandsNum();
