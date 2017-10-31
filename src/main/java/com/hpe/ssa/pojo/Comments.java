@@ -2,7 +2,9 @@ package com.hpe.ssa.pojo;
 
 
 import java.sql.Date;
-
+/*
+liukaiming
+ */
 public class Comments {
     private int cid;
     private int c_uid;

@@ -1,7 +1,9 @@
 package com.hpe.ssa.pojo;
 
 import java.sql.Date;
-
+/*
+liukaiming
+ */
 public class Shoes_Inquirys {
     private int sqid;
     private int sq_uid;
